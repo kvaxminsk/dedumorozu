@@ -1,0 +1,18 @@
+$(function(){
+
+    $('.b-specmenu li.js_font_switcher span').unbind('click').bind('click', function(){
+
+        fontSize = 'min';
+        fontSizes = { min:'12px', mid: '14px', big: '16px' };
+        if( $(this).hasClass('specmenu__min')) fontSize = 'min';
+        if( $(this).hasClass('specmenu__mid')) fontSize = 'mid';
+        if( $(this).hasClass('specmenu__big')) fontSize = 'big';
+
+        $('.b-specmenu li.js_font_switcher span').removeClass('on');
+        $(this).addClass('on');
+        $('body').css('font-size',fontSizes[fontSize]);
+
+        $.post("/ajax/ajax.php", { moduleName:'SpecMenu', fontSize: fontSize, cmd: 'setSize_ajax' });
+    });
+
+    });

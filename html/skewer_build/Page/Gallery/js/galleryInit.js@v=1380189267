@@ -1,0 +1,21 @@
+/**
+ * User: ArmiT
+ */
+$(function(){
+
+        $('.gallery_resize').fancybox({
+            openEffect: 'fade',
+//            closeEffect: 'fade',
+            nextEffect: 'elastic',
+            prevEffect: 'elastic',
+            helpers : {
+                title : {
+                    type : 'inside'
+                }
+            },
+            arrows    : true,
+            nextClick : true,
+            mouseWheel: true,
+            closeBtn: true
+        });
+});

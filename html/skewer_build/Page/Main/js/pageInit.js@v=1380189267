@@ -1,0 +1,26 @@
+/**
+ * User: ArmiT
+ * Date: 12.11.11
+ * Time: 16:19
+ */
+$(function(){
+
+    var bDebug = false;
+
+    if(bDebug){
+
+        console.log('Document rendered: %s',new Date());
+    }//is debug
+
+    $('.js_use_resize').fancybox({
+        openEffect: 'fade',
+        closeEffect: 'fade',
+        nextEffect: 'none',
+        prevEffect: 'none',
+        arrows    : true,
+        nextClick : true,
+        mouseWheel: true
+    });
+
+
+});

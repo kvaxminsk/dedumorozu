@@ -1,0 +1,35 @@
+$(function(){
+
+    $('.js-poll').click(function(){
+
+        var oText = $(this).closest(".text");
+        var iPoll = oText.find("#js-poll").val();
+        var iAnswer = oText.find("input.js-answer:checked").val();
+
+        if ( !iAnswer ) {
+            alert('Не выбран вариант ответа');
+            return false;
+        }
+
+        $.post('/ajax/ajax.php',{ moduleName:'PollPage', cmd: 'vote_ajax', poll: iPoll, answer: iAnswer }, function(mResponse){
+
+            var oResponse = eval("("+mResponse+")");
+            oText.parent().html(oResponse.data.out);
+        });
+
+        return true;
+
+    });
+
+    $('.js-poll-results').click(function(){
+
+        var oText = $(this).closest(".text");
+        var iPoll = oText.find("#js-poll").val();
+
+        $.post('/ajax/ajax.php',{ moduleName:'PollPage', cmd: 'vote_ajax', poll: iPoll }, function(mResponse){
+
+            var oResponse = eval("("+mResponse+")");
+            oText.parent().html(oResponse.data.out);
+        });
+    });
+});

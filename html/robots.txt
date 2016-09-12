@@ -1,0 +1,3 @@
+User-Agent: *
+Host: dedumorozu.by
+Sitemap: http://dedumorozu.by/sitemap.html

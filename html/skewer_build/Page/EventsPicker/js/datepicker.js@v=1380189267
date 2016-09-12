@@ -1,0 +1,27 @@
+/**
+ * User: ArmiT
+ * Date: 27.12.11
+ * Time: 18:14
+ */
+
+$(function(){
+
+    $('#date-picker').datePicker({
+        inline:true,
+        startDate: '01/01/1970',
+        endDate: (new Date()).asString(),
+        renderCallback: function($td, thisDate, month, year)
+        {
+            var d = thisDate.getDate();
+            $td.bind(
+                'click',
+                function() {
+                    window.location = '/news/date/'+d+'-'+(Number(month)+1)+'-'+year+'/';
+                }
+            );
+        }
+    });
+
+});
+
+

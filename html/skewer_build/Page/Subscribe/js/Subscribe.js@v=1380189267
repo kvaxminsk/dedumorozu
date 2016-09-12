@@ -1,0 +1,22 @@
+$(function(){
+
+    $(".js-formsubscribe").find("#js-btncanc").click(function(){
+
+        var oForm = $(this).parents('form');
+
+        if ( oForm.valid() ){
+
+            var sEmail = oForm.find("input[name='email']").val();
+
+            $.post('/ajax/ajax.php',{ moduleName:'Subscribe', cmd: 'unsubscribe_ajax', email: sEmail }, function(mResponse){
+
+                var oResponse = eval("("+mResponse+")");
+
+                if ( oResponse.data.out ){
+                    alert('Вы успешно отписались от рассылки');
+                    window.location.reload();
+                }
+            });
+        }
+    })
+});
